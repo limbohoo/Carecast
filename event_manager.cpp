@@ -61,7 +61,7 @@ void event_process_once(void)
         break;
 
     case EVT_ENCODER_ROTATE:
-        // currently no direct audio effect; UI already handled in knob.c
+        // currently no direct audio effect
         (void)ev;
         break;
 
@@ -78,7 +78,6 @@ void event_process_once(void)
         break;
 
     case EVT_FRIEND_MESSAGE:
-        // ptr could encode friend id if needed
         audio_handle_friend_notification((int)(intptr_t)ev.ptr);
         break;
 

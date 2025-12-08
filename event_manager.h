@@ -4,6 +4,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum {
     EVT_TIMER_30MIN,
     EVT_TOUCH_CLICK,
@@ -31,5 +35,9 @@ void event_manager_init(void);
 bool event_post(event_type_t type, event_prio_t prio, int32_t i32, void *ptr);
 void event_process_once(void);
 void event_notify_audio_complete(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

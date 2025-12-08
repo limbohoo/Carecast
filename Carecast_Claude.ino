@@ -2,7 +2,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <SPI.h>
-#include <SD.h>
+#include <SD_MMC.h>
 
 #include "lvgl.h"
 #include "scr_st77916.h"
@@ -97,11 +97,14 @@ void setup()
     Serial.println("WiFi failed, will use fallback weather");
   }
 
-  // --- SD card for audio files ---
-  if (!SD.begin(SD_CS_PIN)) {
-    Serial.println("SD init failed, audio may not work");
+  // --- SD card initialization for SDMMC (1-bit mode) ---
+  SD_MMC.setPins(3, 2, 4);  // CLK=GPIO3(CMD), CMD=GPIO2(D0), D0=GPIO4(D1)
+  
+  if (!SD_MMC.begin("/sdcard", true)) {  // true = 1-bit mode
+    Serial.println("SD_MMC init failed");
   } else {
-    Serial.println("SD OK");
+    Serial.println("SD_MMC OK");
+    Serial.printf("SD Size: %lluMB\n", SD_MMC.cardSize() / (1024 * 1024));
   }
 
   // --- LVGL + display + touch + encoder ---
