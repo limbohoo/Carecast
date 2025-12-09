@@ -161,7 +161,7 @@ static void set_page(system_page_t page)
         
         // CRITICAL: reset text opacity after any previous animation
         lv_obj_set_style_text_opa(lbl_radar_info, LV_OPA_COVER, 0);
-        lv_label_set_text(lbl_radar_info, "SCANNING");
+        lv_label_set_text(lbl_radar_info, "Friend Search");
     }
 }
 
@@ -305,7 +305,7 @@ void knob_init_system(void)
 
     // Radar centre label
     lbl_radar_info = lv_label_create(layer_radar);
-    lv_label_set_text(lbl_radar_info, "SCANNING");
+    lv_label_set_text(lbl_radar_info, "Friend Search");
     lv_obj_set_style_text_font(lbl_radar_info, &lv_font_montserrat_22, 0);
     lv_obj_set_style_text_color(lbl_radar_info, lv_color_white(), 0);
     lv_obj_center(lbl_radar_info);
@@ -430,7 +430,7 @@ void knob_change(knob_event_t k, int cont)
             
             // Reset opacity before changing text
             lv_obj_set_style_text_opa(lbl_radar_info, LV_OPA_COVER, 0);
-            lv_label_set_text(lbl_radar_info, "SCANNING");
+            lv_label_set_text(lbl_radar_info, "Friend Search");
 
             for (int i = 0; i < 2; i++) {
                 lv_obj_set_size(friends[i].ui_dot, 12, 12);
