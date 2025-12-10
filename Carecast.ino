@@ -24,11 +24,11 @@
 #include "user_config.h"
 
 // ====== 用户配置 ======
-const char* WIFI_SSID     = "雪松里苑 Cederlaan";
-const char* WIFI_PASSWORD = "20252026";
+const char* WIFI_SSID     = "**********";
+const char* WIFI_PASSWORD = "**********";
 
 // OpenWeatherMap API
-const char* API_KEY = "a4d2d8b85633712f5caa4fc5ef58a37b";
+const char* API_KEY = "**********";
 const char* API_BASE = "http://api.openweathermap.org/data/2.5/weather";
 
 // 城市定义
